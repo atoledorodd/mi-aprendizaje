@@ -16,7 +16,7 @@ const PROGRESO = [
       { titulo: "Tener mi primer repo: presu_web", hecho: true,
         nota: "El código de mi web, en mi Mac y en GitHub." },
       { titulo: "Montar \"Mi asistente\" en Notion", hecho: true,
-        nota: "Tareas, Banco de ideas y Planificador de contenido." },
+        nota: "Tareas, Banco de ideas y Planificador de contenido.", guia: "guias/03-mi-ecosistema.html#apps" },
       { titulo: "Avisos en Recordatorios del Mac", hecho: true,
         nota: "Lista \"Mi asistente\". No se sincroniza sola con Notion." },
       { titulo: "Conectar Linear con Claudia", hecho: true,
@@ -32,15 +32,15 @@ const PROGRESO = [
     emoji: "🌱",
     pasos: [
       { titulo: "Entender qué es un repo", hecho: false,
-        nota: "Una carpeta con memoria: recuerda todos los cambios. Guía 01." },
+        nota: "Una carpeta con memoria: recuerda todos los cambios.", guia: "guias/01-git-basico.html#palabras" },
       { titulo: "Hacer mi primer commit en este repo", hecho: false,
-        nota: "Escribe algo en diario.md y haz commit desde VS Code. Guía 01." },
+        nota: "Escribe algo en diario.md y haz commit desde VS Code.", guia: "guias/01-git-basico.html#ejercicio-1" },
       { titulo: "Ver el historial de cambios", hecho: false,
-        nota: "En VS Code: panel Source Control → apartado \"Graph\" o \"Timeline\"." },
+        nota: "En VS Code: panel Source Control → apartado \"Graph\" o \"Timeline\".", guia: "guias/01-git-basico.html#ejercicio-3" },
       { titulo: "Subir este repo a GitHub (Publish)", hecho: false,
-        nota: "Botón \"Publish Branch\" en VS Code. Guía 01." },
+        nota: "Botón \"Publish Branch\" en VS Code.", guia: "guias/01-git-basico.html#ejercicio-2" },
       { titulo: "Entender qué es una rama", hecho: false,
-        nota: "Un borrador de la web para probar sin romper nada. Guía 01." }
+        nota: "Un borrador de la web para probar sin romper nada.", guia: "guias/01-git-basico.html#palabras" }
     ]
   },
   {
@@ -48,15 +48,15 @@ const PROGRESO = [
     emoji: "🔗",
     pasos: [
       { titulo: "Conectar Linear con GitHub", hecho: false,
-        nota: "Linear → Settings → Integrations → GitHub → repo presu_web. Guía 02." },
+        nota: "Linear → Settings → Integrations → GitHub → repo presu_web.", guia: "guias/02-linear-github.html#conectar" },
       { titulo: "Crear una rama desde ANN-5", hecho: false,
-        nota: "Cmd + Shift + . en Linear copia el nombre de la rama." },
+        nota: "Cmd + Shift + . en Linear copia el nombre de la rama.", guia: "guias/02-linear-github.html#ejemplo" },
       { titulo: "Commit con el código de la tarea", hecho: false,
-        nota: "Ej: \"ANN-5 El selector de idioma se abre al hacer clic\"." },
+        nota: "Ej: \"ANN-5 El selector de idioma se abre al hacer clic\".", guia: "guias/02-linear-github.html#ejemplo" },
       { titulo: "Abrir mi primer Pull Request", hecho: false,
-        nota: "En GitHub, con \"Fixes ANN-5\" en la descripción." },
+        nota: "En GitHub, con \"Fixes ANN-5\" en la descripción.", guia: "guias/02-linear-github.html#ejemplo" },
       { titulo: "Hacer merge y ver la tarea en Done", hecho: false,
-        nota: "¡La tarea de Linear se cierra sola! 🎉" }
+        nota: "¡La tarea de Linear se cierra sola! 🎉", guia: "guias/02-linear-github.html#ejemplo" }
     ]
   },
   {
@@ -64,11 +64,11 @@ const PROGRESO = [
     emoji: "🔁",
     pasos: [
       { titulo: "Cerrar una tarea en Linear y en Notion", hecho: false,
-        nota: "Linear se cierra solo; en Notion marco \"Hecho\" (o se lo pido a Claudia)." },
+        nota: "Linear se cierra solo; en Notion marco \"Hecho\" (o se lo pido a Claudia).", guia: "guias/02-linear-github.html#ejemplo" },
       { titulo: "Escribir en mi diario 3 días seguidos", hecho: false,
         nota: "Unas líneas en diario.md + commit. ¡Práctica de Git sin darme cuenta!" },
       { titulo: "Terminar las 7 tareas del proyecto Web", hecho: false,
-        nota: "Del ANN-5 al ANN-11." }
+        nota: "Del ANN-5 al ANN-11.", guia: "guias/02-linear-github.html#tareas" }
     ]
   }
 ];
@@ -77,6 +77,11 @@ const PROGRESO = [
 // Claudia añade una entrada cada vez que aprendemos o hacemos algo juntas.
 // La más nueva va arriba del todo.
 const SESIONES = [
+  { fecha: "2026-10-07", titulo: "Mis guías ahora son páginas web",
+    hicimos: ["Convertimos las 3 guías de Markdown (.md) a páginas web (.html)",
+              "Cada paso de mi progreso tiene un link \"Ver guía →\" que lleva justo a su apartado",
+              "Pusimos el diseño en un archivo compartido (estilo.css) para que todas las páginas se vean igual"],
+    aprendi: "Una web puede tener varias páginas enlazadas con links. Con #nombre al final de un link (ej. #ejercicio-1) saltas directa a una parte de la página." },
   { fecha: "2026-10-07", titulo: "Mi web de aprendizaje se actualiza sola",
     hicimos: ["Le pedí a Claudia que actualice esta web cada vez que hablamos",
               "Claudia lo guardó en sus instrucciones generales (~/.claude/CLAUDE.md), así se acuerda en cualquier carpeta",
@@ -109,5 +114,9 @@ const DICCIONARIO = [
   { palabra: "Issue (Linear)", significado: "Una tarea, con un código como ANN-5." },
   { palabra: "git init", significado: "Convertir una carpeta normal en un repo de Git." },
   { palabra: "MCP", significado: "Un “enchufe” que conecta a Claudia con otras apps (Notion, Linear…)." },
-  { palabra: "CLAUDE.md", significado: "Un archivo de instrucciones que Claudia lee siempre al empezar a hablar contigo." }
+  { palabra: "CLAUDE.md", significado: "Un archivo de instrucciones que Claudia lee siempre al empezar a hablar contigo." },
+  { palabra: "Markdown (.md)", significado: "Texto con formato sencillo (# para títulos, - para listas). Se lee bien en VS Code, pero no es una web." },
+  { palabra: "HTML (.html)", significado: "El idioma de las páginas web: dice qué hay en la página (títulos, textos, links…)." },
+  { palabra: "CSS (.css)", significado: "El “vestido” de la web: colores, letras y espacios. Un solo archivo puede vestir muchas páginas." },
+  { palabra: "Link con # (ancla)", significado: "Un link que salta a una parte concreta de una página, como guia.html#ejercicio-1." }
 ];

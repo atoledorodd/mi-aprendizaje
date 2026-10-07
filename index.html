@@ -6,71 +6,7 @@
 <title>Mi aprendizaje</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-<style>
-  :root {
-    --bg: #fbf7f2; --card: #ffffff; --ink: #2b2522; --muted: #7a6f68;
-    --line: #ece4dc; --accent: #d4694f; --accent-soft: #fbe6df;
-    --ok: #3f8f6b; --ok-soft: #e1f2e9;
-  }
-  @media (prefers-color-scheme: dark) {
-    :root:not([data-theme="light"]) {
-      --bg: #1c1917; --card: #262220; --ink: #f3ede8; --muted: #a89d95;
-      --line: #3a3330; --accent: #ef8a6f; --accent-soft: #3d2a24;
-      --ok: #6cc59b; --ok-soft: #1f3329;
-    }
-  }
-  :root[data-theme="dark"] {
-    --bg: #1c1917; --card: #262220; --ink: #f3ede8; --muted: #a89d95;
-    --line: #3a3330; --accent: #ef8a6f; --accent-soft: #3d2a24;
-    --ok: #6cc59b; --ok-soft: #1f3329;
-  }
-  * { box-sizing: border-box; }
-  body { margin: 0; background: var(--bg); color: var(--ink);
-         font: 16px/1.55 Inter, system-ui, sans-serif; }
-  main { max-width: 760px; margin: 0 auto; padding: 40px 16px 64px; }
-  h1, h2 { font-family: Fraunces, Georgia, serif; font-weight: 600; margin: 0; }
-  h1 { font-size: 2.2rem; }
-  h2 { font-size: 1.3rem; display: flex; align-items: center; gap: 8px; }
-  .sub { color: var(--muted); margin: 6px 0 28px; }
-
-  .card { background: var(--card); border: 1px solid var(--line);
-          border-radius: 16px; padding: 20px; margin-bottom: 18px; }
-  .big { display: flex; align-items: baseline; gap: 10px; }
-  .big b { font-size: 2.6rem; font-family: Fraunces, Georgia, serif; color: var(--accent); }
-  .bar { height: 12px; background: var(--line); border-radius: 99px; overflow: hidden; margin-top: 10px; }
-  .bar span { display: block; height: 100%; background: var(--accent); border-radius: 99px;
-              transition: width .6s ease; }
-  .bar.small { height: 6px; margin: 8px 0 14px; }
-
-  .next { background: var(--accent-soft); border-color: transparent; }
-  .next small { text-transform: uppercase; letter-spacing: .06em; font-weight: 600; color: var(--accent); }
-  .next p { margin: 4px 0 0; }
-
-  .count { margin-left: auto; font: 500 .85rem Inter, sans-serif; color: var(--muted); }
-  ul { list-style: none; padding: 0; margin: 0; }
-  li { display: flex; gap: 12px; padding: 10px 0; border-top: 1px solid var(--line); }
-  li:first-child { border-top: 0; }
-  .dot { flex: none; width: 24px; height: 24px; border-radius: 50%; border: 2px solid var(--line);
-         display: grid; place-items: center; font-size: .8rem; margin-top: 1px; }
-  li.done .dot { background: var(--ok); border-color: var(--ok); color: #fff; }
-  li.done .t { color: var(--muted); text-decoration: line-through; }
-  .t { font-weight: 500; }
-  .n { color: var(--muted); font-size: .9rem; }
-
-  details { border-top: 1px solid var(--line); padding: 10px 0; }
-  details:first-of-type { border-top: 0; }
-  summary { cursor: pointer; font-weight: 600; }
-  code { background: var(--accent-soft); padding: 1px 6px; border-radius: 6px; font-size: .88rem;
-         word-break: break-word; }
-  dl { margin: 0; }
-  dt { font-weight: 600; margin-top: 10px; }
-  dd { margin: 2px 0 0; color: var(--muted); }
-  .fecha { color: var(--accent); font-weight: 600; }
-  ul.hicimos { list-style: disc; padding-left: 22px; margin: 8px 0; }
-  ul.hicimos li { display: list-item; border: 0; padding: 2px 0; }
-  .aprendi { background: var(--ok-soft); border-radius: 10px; padding: 8px 12px; margin: 6px 0 0; }
-  footer { color: var(--muted); font-size: .85rem; text-align: center; margin-top: 30px; }
-</style>
+<link rel="stylesheet" href="estilo.css">
 </head>
 <body>
 <main>
@@ -83,6 +19,15 @@
   </section>
 
   <section class="card next" id="siguiente"></section>
+
+  <section class="card">
+    <h2>📚 Mis guías</h2>
+    <div class="guias">
+      <a class="guia" href="guias/01-git-basico.html"><b>01 · Git básico 🌱</b><span>Repo, commit, rama, push… y 3 ejercicios</span></a>
+      <a class="guia" href="guias/02-linear-github.html"><b>02 · Linear + GitHub 🔗</b><span>Una tarea de principio a fin, con ANN-5 de ejemplo</span></a>
+      <a class="guia" href="guias/03-mi-ecosistema.html"><b>03 · Mi ecosistema 🌍</b><span>Para qué uso cada app, mi rutina y mis repos</span></a>
+    </div>
+  </section>
 
   <div id="modulos"></div>
 
@@ -103,7 +48,7 @@
   </section>
 
   <section class="card">
-    <h2>📖 Diccionario</h2>
+    <h2>📖 Diccionario<span class="count" id="npalabras"></span></h2>
     <dl id="diccionario"></dl>
   </section>
 
@@ -120,6 +65,7 @@
   const todos = PROGRESO.flatMap(m => m.pasos);
   const hechos = todos.filter(p => p.hecho).length;
   const pct = Math.round(hechos / todos.length * 100);
+  const enlace = p => p.guia ? ` <a href="${p.guia}">Ver guía →</a>` : "";
 
   document.getElementById("pct").textContent = pct + "%";
   document.getElementById("resumen").textContent = `${hechos} de ${todos.length} pasos completados`;
@@ -127,7 +73,7 @@
 
   const sig = todos.find(p => !p.hecho);
   document.getElementById("siguiente").innerHTML = sig
-    ? `<small>Tu siguiente paso</small><p><b>${sig.titulo}</b> · ${sig.nota}</p>`
+    ? `<small>Tu siguiente paso</small><p><b>${sig.titulo}</b> · ${sig.nota}${enlace(sig)}</p>`
     : `<small>¡Lo has conseguido!</small><p>Has completado todos los pasos 🎉</p>`;
 
   document.getElementById("modulos").innerHTML = PROGRESO.map(m => {
@@ -136,14 +82,15 @@
     return `<section class="card">
       <h2>${m.emoji} ${m.modulo}<span class="count">${h}/${m.pasos.length}</span></h2>
       <div class="bar small"><span style="width:${p}%"></span></div>
-      <ul>${m.pasos.map(s => `
+      <ul class="pasos">${m.pasos.map(s => `
         <li class="${s.hecho ? "done" : ""}">
           <span class="dot">${s.hecho ? "✓" : ""}</span>
-          <div><div class="t">${s.titulo}</div><div class="n">${s.nota}</div></div>
+          <div><div class="t">${s.titulo}</div><div class="n">${s.nota}${enlace(s)}</div></div>
         </li>`).join("")}</ul>
     </section>`;
   }).join("");
 
+  document.getElementById("npalabras").textContent = DICCIONARIO.length + " palabras";
   document.getElementById("diccionario").innerHTML = DICCIONARIO
     .map(d => `<dt>${d.palabra}</dt><dd>${d.significado}</dd>`).join("");
 

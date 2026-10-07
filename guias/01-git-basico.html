@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Git básico</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../estilo.css">
+</head>
+<body>
+<main>
+  <a class="volver" href="../index.html">← Mi aprendizaje</a>
+  <h1>01 · Git básico 🌱</h1>
+  <p class="sub">Las palabras clave y tus primeros ejercicios.</p>
+
+  <section class="card" id="palabras">
+    <h2>📖 Las palabras clave</h2>
+    <dl>
+      <dt>Repo (repositorio)</dt><dd>Una carpeta con memoria. Recuerda cada cambio que guardas.</dd>
+      <dt>Commit</dt><dd>Una “foto” de tus cambios, con un mensaje que dice qué hiciste.</dd>
+      <dt>Rama (branch)</dt><dd>Un borrador. Pruebas cosas sin tocar la versión buena, que se llama <code>main</code>.</dd>
+      <dt>Push / Sync</dt><dd>Subir tus commits a GitHub (y bajar lo que haya allí).</dd>
+      <dt>GitHub</dt><dd>La “nube” donde viven tus repos. Git funciona en tu Mac; GitHub, en internet.</dd>
+    </dl>
+  </section>
+
+  <section class="card" id="ejercicio-1">
+    <h2>✍️ Ejercicio 1: tu primer commit</h2>
+    <p>Lo haces aquí mismo, en este repo.</p>
+    <ol>
+      <li>En VS Code: <b>File → Open Folder…</b> y elige <code>repos/mi-aprendizaje</code>.</li>
+      <li>Abre <code>diario.md</code>, escribe unas líneas con la fecha de hoy y guarda con <b>Cmd + S</b>.</li>
+      <li>A la izquierda, pulsa el icono de las <b>ramitas</b> (Source Control). Verás <code>diario.md</code> con una <b>M</b> (modificado).</li>
+      <li>Arriba, escribe un mensaje, por ejemplo: <code>Mi primera entrada en el diario</code>.</li>
+      <li>Pulsa <b>Commit</b>. ¡Hecho! 🎉</li>
+      <li>Abre <code>progreso.js</code>, cambia <code>hecho: false</code> por <code>hecho: true</code> en “Hacer mi primer commit en este repo”, guarda y haz otro commit. (O díselo a Claudia.)</li>
+    </ol>
+  </section>
+
+  <section class="card" id="ejercicio-2">
+    <h2>☁️ Ejercicio 2: subir este repo a GitHub</h2>
+    <ol>
+      <li>En el panel Source Control, pulsa <b>Publish Branch</b>.</li>
+      <li>VS Code te pregunta si lo quieres <b>privado</b> o <b>público</b>. Para tu diario, mejor <b>privado</b>.</li>
+      <li>Cuando acabe, lo verás en <a href="https://github.com/atoledorodd">github.com/atoledorodd</a>.</li>
+    </ol>
+    <p class="aviso">A partir de ahí, después de cada commit pulsa <b>Sync Changes</b> para subirlo.</p>
+  </section>
+
+  <section class="card" id="ejercicio-3">
+    <h2>🕰️ Ejercicio 3: ver tu historial</h2>
+    <p>En Source Control, abajo, abre el apartado <b>Graph</b> (o en el Explorador, <b>Timeline</b>). Verás todas tus “fotos”, de la más nueva a la más antigua.</p>
+  </section>
+
+  <section class="card" id="problemas">
+    <h2>🆘 Si algo sale mal</h2>
+    <ul>
+      <li><b>“Please tell me who you are”</b>: Git no sabe tu nombre. Pídele a Claudia que lo configure.</li>
+      <li><b>¿Cambié algo sin querer y aún no hice commit?</b> En Source Control, pasa el ratón por encima del archivo y pulsa la flecha ↩️ (<b>Discard Changes</b>). Ojo: borra esos cambios.</li>
+      <li><b>¿Dudas?</b> Pregunta a Claudia. Para eso está 😊</li>
+    </ul>
+  </section>
+
+  <nav class="nav-guias">
+    <a href="../index.html">← Mi aprendizaje</a>
+    <a href="02-linear-github.html">02 · Linear + GitHub →</a>
+  </nav>
+</main>
+</body>
+</html>
