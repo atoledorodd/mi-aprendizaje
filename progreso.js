@@ -63,6 +63,12 @@ const PROGRESO = [
     modulo: "4. Mi rutina",
     emoji: "🔁",
     pasos: [
+      { titulo: "Entender mi workflow", hecho: true,
+        nota: "Las apps no se hablan solas: Claudia es el puente.", guia: "guias/04-mi-dia-a-dia.html#regla" },
+      { titulo: "Abrir siempre la carpeta repos en VS Code", hecho: false,
+        nota: "Así veo mis dos repos a la vez y Claudia tiene todas sus notas.", guia: "guias/04-mi-dia-a-dia.html#una-vez" },
+      { titulo: "Pedirle a Claudia un cambio con una de las frases", hecho: false,
+        nota: "Ej: \"Mueve Editar BTS al viernes\".", guia: "guias/04-mi-dia-a-dia.html#frases" },
       { titulo: "Cerrar una tarea en Linear y en Notion", hecho: false,
         nota: "Linear se cierra solo; en Notion marco \"Hecho\" (o se lo pido a Claudia).", guia: "guias/02-linear-github.html#ejemplo" },
       { titulo: "Escribir en mi diario 3 días seguidos", hecho: false,
@@ -77,6 +83,10 @@ const PROGRESO = [
 // Claudia añade una entrada cada vez que aprendemos o hacemos algo juntas.
 // La más nueva va arriba del todo.
 const SESIONES = [
+  { fecha: "2026-10-07", titulo: "Mi workflow: cómo funciona todo junto",
+    hicimos: ["Repasamos cómo uso Notion, Linear, VS Code, GitHub y Recordatorios cada día",
+              "Creamos la guía 04 · Mi día a día, con frases para pedirle cosas a Claudia"],
+    aprendi: "Mis apps no se sincronizan solas: cuando algo cambia, se lo digo a Claudia y ella lo actualiza en todos los sitios. Solo GitHub → Linear funciona solo (con \"Fixes ANN-5\")." },
   { fecha: "2026-10-07", titulo: "Mis guías ahora son páginas web",
     hicimos: ["Convertimos las 3 guías de Markdown (.md) a páginas web (.html)",
               "Cada paso de mi progreso tiene un link \"Ver guía →\" que lleva justo a su apartado",
@@ -118,5 +128,7 @@ const DICCIONARIO = [
   { palabra: "Markdown (.md)", significado: "Texto con formato sencillo (# para títulos, - para listas). Se lee bien en VS Code, pero no es una web." },
   { palabra: "HTML (.html)", significado: "El idioma de las páginas web: dice qué hay en la página (títulos, textos, links…)." },
   { palabra: "CSS (.css)", significado: "El “vestido” de la web: colores, letras y espacios. Un solo archivo puede vestir muchas páginas." },
+  { palabra: "Workflow", significado: "Tu forma de trabajar paso a paso: qué haces, en qué orden y con qué herramienta." },
+  { palabra: "Sincronizar", significado: "Que dos apps tengan la misma información. Las mías no lo hacen solas: lo hace Claudia." },
   { palabra: "Link con # (ancla)", significado: "Un link que salta a una parte concreta de una página, como guia.html#ejercicio-1." }
 ];

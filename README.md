@@ -13,6 +13,7 @@ Aquí guardo todo lo que voy aprendiendo sobre Git, GitHub, VS Code, Linear y No
 | `guias/01-git-basico.html` | Repo, commit, rama, push… explicado fácil. |
 | `guias/02-linear-github.html` | Cómo trabajar una tarea de Linear de principio a fin. |
 | `guias/03-mi-ecosistema.html` | Para qué uso cada app. |
+| `guias/04-mi-dia-a-dia.html` | Mi workflow: cómo uso todo junto y qué decirle a Claudia. |
 
 ## Truco
 
