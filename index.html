@@ -65,6 +65,10 @@
   dl { margin: 0; }
   dt { font-weight: 600; margin-top: 10px; }
   dd { margin: 2px 0 0; color: var(--muted); }
+  .fecha { color: var(--accent); font-weight: 600; }
+  ul.hicimos { list-style: disc; padding-left: 22px; margin: 8px 0; }
+  ul.hicimos li { display: list-item; border: 0; padding: 2px 0; }
+  .aprendi { background: var(--ok-soft); border-radius: 10px; padding: 8px 12px; margin: 6px 0 0; }
   footer { color: var(--muted); font-size: .85rem; text-align: center; margin-top: 30px; }
 </style>
 </head>
@@ -100,15 +104,12 @@
 
   <section class="card">
     <h2>📖 Diccionario</h2>
-    <dl>
-      <dt>Repo (repositorio)</dt><dd>Una carpeta con memoria: guarda todos los cambios que haces.</dd>
-      <dt>Commit</dt><dd>Una “foto” de tus cambios con un mensaje que explica qué hiciste.</dd>
-      <dt>Rama (branch)</dt><dd>Un borrador para probar cosas sin tocar la versión buena (<code>main</code>).</dd>
-      <dt>Push / Sync</dt><dd>Subir tus commits a GitHub (y bajar los que haya allí).</dd>
-      <dt>Pull Request (PR)</dt><dd>Pedir “mezcla mi borrador con la versión buena”.</dd>
-      <dt>Merge</dt><dd>Mezclar de verdad: tus cambios entran en <code>main</code>.</dd>
-      <dt>Issue (Linear)</dt><dd>Una tarea, con un código como <code>ANN-5</code>.</dd>
-    </dl>
+    <dl id="diccionario"></dl>
+  </section>
+
+  <section class="card">
+    <h2>💬 Aprendiendo con Claudia<span class="count" id="nsesiones"></span></h2>
+    <div id="sesiones"></div>
   </section>
 
   <footer>Para marcar un paso como hecho: cambia <code>false</code> por <code>true</code> en <code>progreso.js</code> y recarga la página.</footer>
@@ -142,6 +143,20 @@
         </li>`).join("")}</ul>
     </section>`;
   }).join("");
+
+  document.getElementById("diccionario").innerHTML = DICCIONARIO
+    .map(d => `<dt>${d.palabra}</dt><dd>${d.significado}</dd>`).join("");
+
+  const fecha = f => new Date(f + "T12:00").toLocaleDateString("es-ES", { day: "numeric", month: "long", year: "numeric" });
+  document.getElementById("nsesiones").textContent = SESIONES.length + " sesiones";
+  document.getElementById("sesiones").innerHTML = SESIONES.map(s => `
+    <details class="sesion">
+      <summary><span class="fecha">${fecha(s.fecha)}</span> · ${s.titulo}</summary>
+      <ul class="hicimos">${s.hicimos.map(h => `<li>${h}</li>`).join("")}</ul>
+      <p class="aprendi">💡 ${s.aprendi}</p>
+    </details>`).join("");
+  const primera = document.querySelector(".sesion");
+  if (primera) primera.open = true;
 </script>
 </body>
 </html>
