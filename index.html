@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mi aprendizaje</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #fbf7f2; --card: #ffffff; --ink: #2b2522; --muted: #7a6f68;
+    --line: #ece4dc; --accent: #d4694f; --accent-soft: #fbe6df;
+    --ok: #3f8f6b; --ok-soft: #e1f2e9;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #1c1917; --card: #262220; --ink: #f3ede8; --muted: #a89d95;
+      --line: #3a3330; --accent: #ef8a6f; --accent-soft: #3d2a24;
+      --ok: #6cc59b; --ok-soft: #1f3329;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #1c1917; --card: #262220; --ink: #f3ede8; --muted: #a89d95;
+    --line: #3a3330; --accent: #ef8a6f; --accent-soft: #3d2a24;
+    --ok: #6cc59b; --ok-soft: #1f3329;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink);
+         font: 16px/1.55 Inter, system-ui, sans-serif; }
+  main { max-width: 760px; margin: 0 auto; padding: 40px 16px 64px; }
+  h1, h2 { font-family: Fraunces, Georgia, serif; font-weight: 600; margin: 0; }
+  h1 { font-size: 2.2rem; }
+  h2 { font-size: 1.3rem; display: flex; align-items: center; gap: 8px; }
+  .sub { color: var(--muted); margin: 6px 0 28px; }
+
+  .card { background: var(--card); border: 1px solid var(--line);
+          border-radius: 16px; padding: 20px; margin-bottom: 18px; }
+  .big { display: flex; align-items: baseline; gap: 10px; }
+  .big b { font-size: 2.6rem; font-family: Fraunces, Georgia, serif; color: var(--accent); }
+  .bar { height: 12px; background: var(--line); border-radius: 99px; overflow: hidden; margin-top: 10px; }
+  .bar span { display: block; height: 100%; background: var(--accent); border-radius: 99px;
+              transition: width .6s ease; }
+  .bar.small { height: 6px; margin: 8px 0 14px; }
+
+  .next { background: var(--accent-soft); border-color: transparent; }
+  .next small { text-transform: uppercase; letter-spacing: .06em; font-weight: 600; color: var(--accent); }
+  .next p { margin: 4px 0 0; }
+
+  .count { margin-left: auto; font: 500 .85rem Inter, sans-serif; color: var(--muted); }
+  ul { list-style: none; padding: 0; margin: 0; }
+  li { display: flex; gap: 12px; padding: 10px 0; border-top: 1px solid var(--line); }
+  li:first-child { border-top: 0; }
+  .dot { flex: none; width: 24px; height: 24px; border-radius: 50%; border: 2px solid var(--line);
+         display: grid; place-items: center; font-size: .8rem; margin-top: 1px; }
+  li.done .dot { background: var(--ok); border-color: var(--ok); color: #fff; }
+  li.done .t { color: var(--muted); text-decoration: line-through; }
+  .t { font-weight: 500; }
+  .n { color: var(--muted); font-size: .9rem; }
+
+  details { border-top: 1px solid var(--line); padding: 10px 0; }
+  details:first-of-type { border-top: 0; }
+  summary { cursor: pointer; font-weight: 600; }
+  code { background: var(--accent-soft); padding: 1px 6px; border-radius: 6px; font-size: .88rem;
+         word-break: break-word; }
+  dl { margin: 0; }
+  dt { font-weight: 600; margin-top: 10px; }
+  dd { margin: 2px 0 0; color: var(--muted); }
+  footer { color: var(--muted); font-size: .85rem; text-align: center; margin-top: 30px; }
+</style>
+</head>
+<body>
+<main>
+  <h1>Mi aprendizaje 🌷</h1>
+  <p class="sub">Git, GitHub, VS Code, Linear y Notion, paso a paso.</p>
+
+  <section class="card">
+    <div class="big"><b id="pct">0%</b><span id="resumen"></span></div>
+    <div class="bar"><span id="barra" style="width:0"></span></div>
+  </section>
+
+  <section class="card next" id="siguiente"></section>
+
+  <div id="modulos"></div>
+
+  <section class="card">
+    <h2>📝 Chuleta</h2>
+    <details><summary>Empezar una tarea de Linear</summary>
+      <p>En Linear abre la tarea → <code>Cmd + Shift + .</code> (copia el nombre de rama) → en VS Code clic abajo a la izquierda en <code>main</code> → <em>Create new branch…</em> → pegar.</p>
+    </details>
+    <details><summary>Guardar cambios (commit)</summary>
+      <p>Icono de ramitas (Source Control) → escribe el mensaje con el código, ej. <code>ANN-5 Selector con clic</code> → <em>Commit</em> → <em>Sync / Publish Branch</em>.</p>
+    </details>
+    <details><summary>Cerrar la tarea sola</summary>
+      <p>En GitHub: <em>Compare &amp; pull request</em> → en la descripción <code>Fixes ANN-5</code> → <em>Create</em> → <em>Merge</em>. Linear la pasa a Done 🎉</p>
+    </details>
+    <details><summary>Volver a la versión buena</summary>
+      <p>Clic abajo a la izquierda en el nombre de la rama → elige <code>main</code>. Después pulsa <em>Sync</em> para traer lo último.</p>
+    </details>
+  </section>
+
+  <section class="card">
+    <h2>📖 Diccionario</h2>
+    <dl>
+      <dt>Repo (repositorio)</dt><dd>Una carpeta con memoria: guarda todos los cambios que haces.</dd>
+      <dt>Commit</dt><dd>Una “foto” de tus cambios con un mensaje que explica qué hiciste.</dd>
+      <dt>Rama (branch)</dt><dd>Un borrador para probar cosas sin tocar la versión buena (<code>main</code>).</dd>
+      <dt>Push / Sync</dt><dd>Subir tus commits a GitHub (y bajar los que haya allí).</dd>
+      <dt>Pull Request (PR)</dt><dd>Pedir “mezcla mi borrador con la versión buena”.</dd>
+      <dt>Merge</dt><dd>Mezclar de verdad: tus cambios entran en <code>main</code>.</dd>
+      <dt>Issue (Linear)</dt><dd>Una tarea, con un código como <code>ANN-5</code>.</dd>
+    </dl>
+  </section>
+
+  <footer>Para marcar un paso como hecho: cambia <code>false</code> por <code>true</code> en <code>progreso.js</code> y recarga la página.</footer>
+</main>
+
+<script src="progreso.js"></script>
+<script>
+  const todos = PROGRESO.flatMap(m => m.pasos);
+  const hechos = todos.filter(p => p.hecho).length;
+  const pct = Math.round(hechos / todos.length * 100);
+
+  document.getElementById("pct").textContent = pct + "%";
+  document.getElementById("resumen").textContent = `${hechos} de ${todos.length} pasos completados`;
+  requestAnimationFrame(() => document.getElementById("barra").style.width = pct + "%");
+
+  const sig = todos.find(p => !p.hecho);
+  document.getElementById("siguiente").innerHTML = sig
+    ? `<small>Tu siguiente paso</small><p><b>${sig.titulo}</b> · ${sig.nota}</p>`
+    : `<small>¡Lo has conseguido!</small><p>Has completado todos los pasos 🎉</p>`;
+
+  document.getElementById("modulos").innerHTML = PROGRESO.map(m => {
+    const h = m.pasos.filter(p => p.hecho).length;
+    const p = Math.round(h / m.pasos.length * 100);
+    return `<section class="card">
+      <h2>${m.emoji} ${m.modulo}<span class="count">${h}/${m.pasos.length}</span></h2>
+      <div class="bar small"><span style="width:${p}%"></span></div>
+      <ul>${m.pasos.map(s => `
+        <li class="${s.hecho ? "done" : ""}">
+          <span class="dot">${s.hecho ? "✓" : ""}</span>
+          <div><div class="t">${s.titulo}</div><div class="n">${s.nota}</div></div>
+        </li>`).join("")}</ul>
+    </section>`;
+  }).join("");
+</script>
+</body>
+</html>
